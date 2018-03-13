@@ -139,12 +139,14 @@ function changeState() {
   } else {
     //check if all cards are flagged as matched
     let matchList = document.getElementsByClassName("match");
-    if (matchList.length == 16) clockActive = false;
+    if (matchList.length == 16) {
+      clockActive = false;
+      //simple alert
+      // alert("CONGRATULATIONS! Game Completed!");
+      swal("CONGRATULATIONS!", "Game Completed, you're AWESOME!", "success");
+    }
   }
 }
-
-// randomise the layout
-shuffle(iconArray);
 
 // Get the element, add a click listener...
 parentElement.addEventListener("click", function(e) {
@@ -190,6 +192,9 @@ document.getElementById("restart").addEventListener("click", function() {
     }
   }
 });
+
+//force a restart event to make sure cards are shuffled
+document.getElementById("restart").click();
 
 /*
  * set up the event listener for a card. If a card is clicked:
