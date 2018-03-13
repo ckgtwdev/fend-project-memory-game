@@ -17,9 +17,9 @@ body {
 }
 
 body {
-    background: #ffffff url('../img/10light.jpg');
+    background: #ffffff url("../img/10light.jpg");
     /* Background pattern from Subtle Patterns */
-    font-family: 'Coda', cursive;
+    font-family: "Coda", cursive;
 }
 
 .container {
@@ -27,10 +27,11 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    flex: 1;
 }
 
 h1 {
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
     font-weight: 700;
     -webkit-text-stroke: 1px dimgrey;
     -webkit-text-fill-color: #6ff3d6;
@@ -53,6 +54,7 @@ h1 {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    flex: 1;
     margin: 0 0 3em;
 }
 
@@ -93,6 +95,7 @@ h1 {
 .card.match {
     pointer-events: none;
 }
+
 
 /*
  * Styles for the Score Panel
