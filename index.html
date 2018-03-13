@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Matching Game</title>
     <meta name="description" content="">
-    <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+<script defer src="js/fontawesome-all.min.js"></script>
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
     <link rel="stylesheet" href="css/app.css">
 </head>
@@ -14,68 +14,68 @@
         <header>
             <h1>Matching Game</h1>
         </header>
-
+        <p><span id="game-timer">00:00:00</span></p>
         <section class="score-panel">
         	<ul class="stars">
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
+        		<li><i id="star1" class="fa fa-star"></i></li>
+        		<li><i id="star2" class="fa fa-star"></i></li>
+        		<li><i id="star3" class="fa fa-star"></i></li>
         	</ul>
 
-        	<span class="moves">3</span> Moves
+        	<span id="moves" class="moves">0</span> Moves
 
-            <div class="restart">
-        		<i class="fa fa-repeat"></i>
+            <div id="restart" class="restart">
+        		<i class="fa fa-redo"></i>
         	</div>
         </section>
 
-        <ul class="deck">
-            <li class="card">
-                <i class="fa fa-diamond"></i>
+        <ul id="parent-list" class="clearfix deck">
+            <li id="card01" class="clearfix card">
+                <i class="fa fa-binoculars"></i>
             </li>
-            <li class="card">
-                <i class="fa fa-paper-plane-o"></i>
+            <li id="card02" class="clearfix card">
+                <i class="fa fa-gem"></i>
             </li>
-            <li class="card match">
+            <li id="card03" class="clearfix card">
                 <i class="fa fa-anchor"></i>
             </li>
-            <li class="card">
+            <li id="card04" class="clearfix card">
                 <i class="fa fa-bolt"></i>
             </li>
-            <li class="card">
+            <li id="card05" class="clearfix card">
                 <i class="fa fa-cube"></i>
             </li>
-            <li class="card match">
+            <li id="card06" class="clearfix card">
                 <i class="fa fa-anchor"></i>
             </li>
-            <li class="card">
+            <li id="card07" class="clearfix card">
                 <i class="fa fa-leaf"></i>
             </li>
-            <li class="card">
+            <li id="card08" class="clearfix card">
                 <i class="fa fa-bicycle"></i>
             </li>
-            <li class="card">
-                <i class="fa fa-diamond"></i>
+            <li id="card09" class="clearfix card">
+                <i class="fa fa-binoculars"></i>
             </li>
-            <li class="card">
+            <li id="card10" class="clearfix card">
                 <i class="fa fa-bomb"></i>
             </li>
-            <li class="card">
+            <li id="card11" class="clearfix card">
                 <i class="fa fa-leaf"></i>
             </li>
-            <li class="card">
+            <li id="card12" class="clearfix card">
                 <i class="fa fa-bomb"></i>
             </li>
-            <li class="card open show">
+            <li id="card13" class="clearfix card">
                 <i class="fa fa-bolt"></i>
             </li>
-            <li class="card">
+            <li id="card14" class="clearfix card">
                 <i class="fa fa-bicycle"></i>
             </li>
-            <li class="card">
-                <i class="fa fa-paper-plane-o"></i>
+            <li id="card15" class="clearfix card">
+                <i class="fa fa-gem"></i>
             </li>
-            <li class="card">
+            <li id="card16" class="clearfix card">
                 <i class="fa fa-cube"></i>
             </li>
         </ul>

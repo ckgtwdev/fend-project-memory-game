@@ -17,7 +17,8 @@ body {
 }
 
 body {
-    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    background: #ffffff url('../img/10light.jpg');
+    /* Background pattern from Subtle Patterns */
     font-family: 'Coda', cursive;
 }
 
@@ -30,8 +31,12 @@ body {
 
 h1 {
     font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+    font-weight: 700;
+    -webkit-text-stroke: 1px dimgrey;
+    -webkit-text-fill-color: #6ff3d6;
+    -webkit-animation: fill 0.5s infinite alternate;
 }
+
 
 /*
  * Styles for the deck of cards
@@ -40,7 +45,7 @@ h1 {
 .deck {
     width: 660px;
     min-height: 680px;
-    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    background: linear-gradient(160deg, #7cf36f 0%, #6f8bf3 100%);
     padding: 32px;
     border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
@@ -67,18 +72,26 @@ h1 {
 
 .deck .card.open {
     transform: rotateY(0);
-    background: #02b3e4;
-    cursor: default;
+    background: #a46ff3;
+    /* cursor: default; */
 }
 
 .deck .card.show {
     font-size: 33px;
 }
 
+.clearfix {
+    overflow: auto;
+}
+
 .deck .card.match {
     cursor: default;
-    background: #02ccba;
+    background: #6ff3d6;
     font-size: 33px;
+}
+
+.card.match {
+    pointer-events: none;
 }
 
 /*
@@ -101,6 +114,7 @@ h1 {
 .score-panel .stars li {
     list-style: none;
     display: inline-block;
+    color: #fac519;
 }
 
 .score-panel .restart {
