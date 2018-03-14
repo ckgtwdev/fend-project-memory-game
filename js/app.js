@@ -157,8 +157,8 @@ parentElement.addEventListener("click", function(e) {
     changeState();
     // Display card symbol and increment click count.
     numClicks++;
-    if (numClicks > 8) {
-      if (numClicks >= 9 && numClicks < 16) {
+    if (numClicks > 16) {
+      if (numClicks >= 17 && numClicks < 33) {
         updateStar(star3, "none");
       } else {
         updateStar(star2, "none");
@@ -171,6 +171,7 @@ parentElement.addEventListener("click", function(e) {
 
 document.getElementById("restart").addEventListener("click", function() {
   document.getElementById("game-timer").innerHTML = "00:00:00";
+  clockActive = false;
   numClicks = 0;
   updateCount(numClicks);
   updateStar(star1, "block");
