@@ -124,3 +124,27 @@ h1 {
     float: right;
     cursor: pointer;
 }
+
+@media screen and (max-width: 680px ) {
+    .deck {
+    width: 420px;
+    min-height: 440px;
+    padding: 22px;
+    }
+    .deck .card {
+    height: 80px;
+    width: 80px;
+    }
+}
+
+@media screen and (max-width: 380px ) {
+    .deck {
+    width: 320px;
+    min-height: 340px;
+    padding: 22px;
+    }
+    .deck .card {
+    height: 60px;
+    width: 60px;
+    }
+}

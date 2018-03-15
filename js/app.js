@@ -19,6 +19,7 @@ const starThree = document.getElementById("star3");
 let clockActive = false;
 let listChildren = parentElement.childNodes;
 let numClicks = 0;
+let timerId = 0;
 let faIcon = "";
 let matchingCards = [];
 let compareArray = [];
@@ -73,11 +74,14 @@ function displayCard(e) {
         cardx.classList.toggle("match");
         changeState();
       } else {
-        // hide the cards
-        cardx.classList.toggle("open");
-        cardx.classList.toggle("show");
+        // hide the cards after a short wait
+        setTimeout(function() {
+          cardx.classList.toggle("open");
+          cardx.classList.toggle("show");
+        }, 500);
       }
     }
+    incrementClicks();
     cleanArray();
   }
   updateCount(numClicks);
@@ -128,7 +132,7 @@ function startTimer() {
     // update our html timer
     document.getElementById("game-timer").innerHTML =
       hour + ":" + min + ":" + sec;
-    setTimeout(startTimer, 1000); // keep repeating with speed of 1 second
+    timerId = setTimeout(startTimer, 1000); // keep repeating with speed of 1 second
   }
 }
 
@@ -141,9 +145,35 @@ function changeState() {
     let matchList = document.getElementsByClassName("match");
     if (matchList.length == 16) {
       clockActive = false;
-      //simple alert
-      // alert("CONGRATULATIONS! Game Completed!");
-      swal("CONGRATULATIONS!", "Game Completed, you're AWESOME!", "success");
+      //simple congratulatory alert
+      let starsRetained = 0;
+      if (document.getElementById("star1").style.display === "block")
+        starsRetained++;
+      if (document.getElementById("star2").style.display === "block")
+        starsRetained++;
+      if (document.getElementById("star3").style.display === "block")
+        starsRetained++;
+
+      let playTime = document.getElementById("game-timer").innerHTML;
+      let congratsMessage = `Game Completed!
+      Time to complete: ${playTime}
+      Number of moves: ${numClicks + 1}
+      Stars retained: ${starsRetained}
+      `;
+
+      swal("CONGRATULATIONS!", congratsMessage, "success");
+    }
+  }
+}
+
+function incrementClicks() {
+  // Display card symbol and increment click count.
+  numClicks++;
+  if (numClicks > 16) {
+    if (numClicks >= 17 && numClicks < 33) {
+      updateStar(star3, "none");
+    } else {
+      updateStar(star2, "none");
     }
   }
 }
@@ -155,15 +185,15 @@ parentElement.addEventListener("click", function(e) {
   if (e.target && e.target.nodeName == "LI") {
     // start timer
     changeState();
-    // Display card symbol and increment click count.
-    numClicks++;
-    if (numClicks > 16) {
-      if (numClicks >= 17 && numClicks < 33) {
-        updateStar(star3, "none");
-      } else {
-        updateStar(star2, "none");
-      }
-    }
+    // // Display card symbol and increment click count.
+    // numClicks++;
+    // if (numClicks > 16) {
+    //   if (numClicks >= 17 && numClicks < 33) {
+    //     updateStar(star3, "none");
+    //   } else {
+    //     updateStar(star2, "none");
+    //   }
+    // }
 
     displayCard(e);
   }
@@ -172,6 +202,8 @@ parentElement.addEventListener("click", function(e) {
 document.getElementById("restart").addEventListener("click", function() {
   document.getElementById("game-timer").innerHTML = "00:00:00";
   clockActive = false;
+  // clear timeout else it will appear to speed up
+  clearTimeout(timerId);
   numClicks = 0;
   updateCount(numClicks);
   updateStar(star1, "block");
